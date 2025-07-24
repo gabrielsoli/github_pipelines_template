@@ -1,9 +1,6 @@
 name: PR Pipeline
 on:
   workflow_call:
-    inputs:
-      GH_TOKEN:
-        required: true
 
 jobs:
   unit-tests:

@@ -1,0 +1,22 @@
+name: PR Pipeline
+on:
+  workflow_call:
+    inputs:
+      GH_TOKEN:
+        required: true
+
+jobs:
+  unit-tests:
+    uses: ./.github/job_actions/node_unit_test.yml
+  
+  sonar:
+    uses: ./.github/job_actions/sonarqube.yml
+    with:
+      SONAR_PROJECT_KEY: '[SRE][Application]Test'
+      SONAR_PROJECT_NAME: 'sre-application-test'
+  
+  container-test:
+    uses: ./.github/job_actions/container_test.yml
+
+
+      
